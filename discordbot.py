@@ -7,15 +7,15 @@ bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 def make_team(ctx, adj):
-    include = set()
-    exclude = set()
+    include = []
+    exclude = []
     for mem in adj:
         if re.match(r'\+.+', mem):
-            include.add(mem[1:])
+            include.append(mem[1:])
         elif re.match(r'\-.+', mem):
-            exclude.add(mem[1:])
+            exclude.append(mem[1:])
     vc = ctx.author.voice
-    members = list(({member.name for member in vc.channel.members} | include) - exclude)
+    members = list(({member.name for member in vc.channel.members} | set(include)) - set(exclude))
     return members
     random.shuffle(members)
 
