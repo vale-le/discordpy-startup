@@ -14,7 +14,6 @@ def make_team(ctx, adj):
             include.append(mem[1:])
         elif re.match(r'\-.+', mem):
             exclude.append(mem[1:])
-    return include
     vc = ctx.author.voice
     members = list({member.name for member in vc.channel.members} + include - exclude)
     random.shuffle(members)
