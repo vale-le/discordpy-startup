@@ -2,6 +2,7 @@ from discord.ext import commands
 import os
 import random
 import re
+import traceback
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -29,6 +30,14 @@ def make_team(ctx, adj):
             teamB.append(members[i])
     msg = '.\n=== グリフィンドール ===\n' + '\n'.join(teamA) + '\n\n=== スリザリン ===\n' + '\n'.join(teamB)
     return msg
+
+
+@bot.event
+async def on_command_error(ctx, error):
+    orig_error = getattr(error, "original", error)
+    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+    await ctx.send(error_msg)
+
 
 @bot.command()
 async def team(ctx, *adj):
@@ -66,7 +75,7 @@ async def random(ctx):
                'ソナ', 'ソラカ', 'ゾーイ', 'タム・ケンチ', 'タリック', 'タリヤ', 'タロン',
                'ダイアナ', 'ダリウス', 'チョ＝ガス', 'ツイステッド・フェイト', 'ティーモ',
                'トゥイッチ', 'トランドル', 'トリスターナ', 'トリンダメア', 'ドクター・ムンド',
-               'ドレイヴン', 'ナー', 'ナサス', ' ナミ', ' ニーコ', ' ニダリー', ' ヌヌ＆ウィルンプ',
+               'ドレイヴン', 'ナー', 'ナサス', 'ナミ', 'ニーコ', 'ニダリー', 'ヌヌ＆ウィルンプ',
                'ノーチラス', 'ノクターン', 'ハイマーディンガー', 'バード', 'パイク', 'パンテオン',
                'ビクター', 'フィオラ', 'フィズ', 'フィドルスティックス', 'ブラウム', 'ブラッドミア',
                'ブランド', 'ブリッツクランク', 'ヘカリム', 'ベイガー', 'ボリベア', 'ポッピー',
