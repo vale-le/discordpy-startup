@@ -1,13 +1,22 @@
 from discord.ext import commands
 import os
 import random
+import re
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-def make_team(ctx, exclude):
+def make_team(ctx, adj):
+    include = []
+    exclude = []
+    for mem in adj:
+        if re.match(r'\+.+', mem):
+            include.append(mem[1:])
+        elif re.match(r'\-.+', mem):
+            exclude.append(mem[1:])
+
     vc = ctx.author.voice
-    members = list({member.name for member in vc.channel.members} - set(exclude))
+    members = list({member.name for member in vc.channel.members} + set(include) - set(exclude))
     random.shuffle(members)
 
     teamA = []
@@ -22,8 +31,8 @@ def make_team(ctx, exclude):
     return msg
 
 @bot.command()
-async def team(ctx, *exclude):
-    msg = make_team(ctx, exclude)
+async def team(ctx, *adj):
+    msg = make_team(ctx, adj)
     await ctx.channel.send(msg)
 
 
