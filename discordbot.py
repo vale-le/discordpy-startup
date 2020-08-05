@@ -34,4 +34,8 @@ async def lint(ctx):
     msg = 'Lint さんは {} を使ってください'.format(champ)
     await ctx.channel.send(msg)
 
+@bot.command()
+async def arai(ctx):
+    await ctx.channel.send('yuya3838')
+
 bot.run(token)
