@@ -16,6 +16,7 @@ def make_team(ctx, adj):
             exclude.append(mem[1:])
     vc = ctx.author.voice
     members = list({member.name for member in vc.channel.members} | include - exclude)
+    return members
     random.shuffle(members)
 
     teamA = []
