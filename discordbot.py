@@ -5,20 +5,15 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
+def make_team(ctx, nr_team):
+    vc = ctx.author.voice
+    members = [member.name for member in vc.channel.members]
 
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
-
+    return members
 
 @bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
-
-@bot.command()
-async def test(ctx):
-    await ctx.send('aiueo')
+async def team(ctx, nr_team=2):
+    msg = make_team(ctx, nr_team)
+    await ctx.channel.send(msg)
 
 bot.run(token)
