@@ -59,7 +59,7 @@ async def arai(ctx):
 
 
 @bot.command()
-async def random(ctx):
+async def aram(ctx):
     all_cmp = ['アーゴット', 'アーリ', 'アイバーン', 'アカリ', 'アジール', 'アッシュ',
                'アニー', 'アニビア', 'アフェリオス', 'アムム', 'アリスター', 'イブリン',
                'イラオイ', 'イレリア', 'ウーコン', 'ウディア', 'エイトロックス', 'エコー',
@@ -86,7 +86,7 @@ async def random(ctx):
                'ワーウィック', 'ヴァイ', 'ヴァルス', 'ヴェイン', 'ヴェル＝コズ'
                ]
     champ = random.choice(all_cmp)
-    mgs = 'は {} を使ってください'.format(champ)
+    mgs = 'は {} を使ってください'.format(ctx.author, champ)
     await ctx.channel.send(msg)
 
 
