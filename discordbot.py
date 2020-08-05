@@ -7,7 +7,7 @@ bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
 def make_team(ctx, adj):
-    include = s[
+    include = set()
     exclude = set()
     for mem in adj:
         if re.match(r'\+.+', mem):
