@@ -1,19 +1,29 @@
 from discord.ext import commands
 import os
-import traceback
+import random
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-def make_team(ctx, nr_team):
+def make_team(ctx):
     vc = ctx.author.voice
     members = [member.name for member in vc.channel.members]
+    random.shuffle(members)
 
-    return members
+    teamA = []
+    teamB = []
+    nr_menbers = len(members)
+    for i in range(nr_members):
+        if i % 2 == 0:
+            teamA.append(members[i])
+        else:
+            teamB.append(members[i])
+    msg = '=== TEAM A ===' + '\n'.join(teamA) + '\n=== TEAM B ===' + '\n'.join(teamA)
+    return msg
 
 @bot.command()
-async def team(ctx, nr_team=2):
-    msg = make_team(ctx, nr_team)
+async def team(ctx):
+    msg = make_team(ctx)
     await ctx.channel.send(msg)
 
 bot.run(token)
