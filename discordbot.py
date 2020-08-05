@@ -12,7 +12,7 @@ def make_team(ctx):
 
     teamA = []
     teamB = []
-    nr_menbers = len(members)
+    nr_members = len(members)
     for i in range(nr_members):
         if i % 2 == 0:
             teamA.append(members[i])
