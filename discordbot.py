@@ -22,9 +22,10 @@ def make_team(ctx):
     return msg
 
 @bot.command()
-async def team(ctx):
-    msg = make_team(ctx)
-    await ctx.channel.send(msg)
+async def team(ctx, *exclude):
+    await ctx.channel.send(exclude)
+    //msg = make_team(ctx)
+    //await ctx.channel.send(msg)
 
 
 @bot.command()
