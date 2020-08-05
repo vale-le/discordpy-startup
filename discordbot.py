@@ -77,7 +77,7 @@ async def arai(ctx):
 @bot.command()
 async def random(ctx):
     champ = random.choice(all_cmp)
-    mgs = '{} は {} を使ってください'.format(ctx.auther ,champ)
+    mgs = 'は {} を使ってください'.format(champ)
     await ctx.channel.send(msg)
 
 
