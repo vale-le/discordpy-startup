@@ -18,7 +18,7 @@ def make_team(ctx):
             teamA.append(members[i])
         else:
             teamB.append(members[i])
-    msg = '=== TEAM A ===' + '\n'.join(teamA) + '\n\n=== TEAM B ===\n' + '\n'.join(teamB)
+    msg = '=== TEAM A ===\n' + '\n'.join(teamA) + '\n\n=== TEAM B ===\n' + '\n'.join(teamB)
     return msg
 
 @bot.command()
