@@ -16,7 +16,6 @@ def make_team(ctx, adj):
             exclude.append(mem[1:])
     vc = ctx.author.voice
     members = list(({member.name for member in vc.channel.members} | set(include)) - set(exclude))
-    return members
     random.shuffle(members)
 
     teamA = []
@@ -27,7 +26,7 @@ def make_team(ctx, adj):
             teamA.append(members[i])
         else:
             teamB.append(members[i])
-    msg = '.\n=== TEAM A ===\n' + '\n'.join(teamA) + '\n\n=== TEAM B ===\n' + '\n'.join(teamB)
+    msg = '.\n=== グリフィンドール ===\n' + '\n'.join(teamA) + '\n\n=== スリザリン ===\n' + '\n'.join(teamB)
     return msg
 
 @bot.command()
