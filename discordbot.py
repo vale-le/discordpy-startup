@@ -18,7 +18,7 @@ def make_team(ctx):
             teamA.append(members[i])
         else:
             teamB.append(members[i])
-    msg = ' \n=== TEAM A ===\n' + '\n'.join(teamA) + '\n\n=== TEAM B ===\n' + '\n'.join(teamB)
+    msg = '.\n=== TEAM A ===\n' + '\n'.join(teamA) + '\n\n=== TEAM B ===\n' + '\n'.join(teamB)
     return msg
 
 @bot.command()
@@ -28,9 +28,9 @@ async def team(ctx):
 
 
 @bot.command()
-async def Lint(ctx):
+async def lint(ctx):
     champs = ['モルデ', 'ダリウス', 'フィオラ', 'イラオイ', 'ヘカリム', 'グレイブス']
-    champ = random.choice(champ)
+    champ = random.choice(champs)
     msg = 'Lint さんは {} を使ってください'.format(champ)
     await ctx.channel.send(msg)
 
