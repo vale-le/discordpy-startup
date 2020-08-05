@@ -86,7 +86,7 @@ async def aram(ctx):
                'ワーウィック', 'ヴァイ', 'ヴァルス', 'ヴェイン', 'ヴェル＝コズ'
                ]
     champ = random.choice(all_cmp)
-    mgs = 'は {} を使ってください'.format(ctx.author, champ)
+    msg = '{} は {} を使ってください'.format(ctx.author, champ)
     await ctx.channel.send(msg)
 
 
