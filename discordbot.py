@@ -5,9 +5,9 @@ import random
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-def make_team(ctx):
+def make_team(ctx, exclude):
     vc = ctx.author.voice
-    members = [member.name for member in vc.channel.members]
+    members = list({member.name for member in vc.channel.members} - set(exclude))
     random.shuffle(members)
 
     teamA = []
@@ -23,9 +23,8 @@ def make_team(ctx):
 
 @bot.command()
 async def team(ctx, *exclude):
-    await ctx.channel.send(exclude)
-    # msg = make_team(ctx)
-    # await ctx.channel.send(msg)
+    msg = make_team(ctx, exclude)
+    await ctx.channel.send(msg)
 
 
 @bot.command()
