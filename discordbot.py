@@ -26,4 +26,12 @@ async def team(ctx):
     msg = make_team(ctx)
     await ctx.channel.send(msg)
 
+
+@bot.command()
+async def Lint(ctx):
+    champs = ['モルデ', 'ダリウス', 'フィオラ', 'イラオイ', 'ヘカリム', 'グレイブス']
+    champ = random.choice(champ)
+    msg = 'Lint さんは {} を使ってください'.format(champ)
+    await ctx.channel.send(msg)
+
 bot.run(token)
