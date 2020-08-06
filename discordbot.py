@@ -32,11 +32,11 @@ def make_team(ctx, adj):
     return msg
 
 
-@bot.event
-async def on_command_error(ctx, error):
-    orig_error = getattr(error, "original", error)
-    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
-    await ctx.send(error_msg)
+# @bot.event
+# async def on_command_error(ctx, error):
+#     orig_error = getattr(error, "original", error)
+#     error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+#     await ctx.send(error_msg)
 
 
 @bot.command()
@@ -86,14 +86,8 @@ async def aram(ctx):
                'ワーウィック', 'ヴァイ', 'ヴァルス', 'ヴェイン', 'ヴェル＝コズ'
                ]
     champ = random.choice(all_cmp)
-    msg = '{} は {} を使ってください'.format(ctx.author.name, champ)
+    msg = '{} さんは {} を使ってください'.format(ctx.author.name, champ)
     await ctx.channel.send(msg)
-
-
-@bot.event
-async def on_raw_reaction_add(payload):
-    channel = bot.get_channel(payload.channel_id)
-    await channel.send('reaction')
 
 
 bot.run(token)
