@@ -7,7 +7,6 @@ import traceback
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-client = discord.Client()
 
 def make_team(ctx, adj):
     include = []
@@ -93,7 +92,7 @@ async def aram(ctx):
 
 @bot.event
 async def on_rreaction_add(payload):
-    channel = client.get_channel(payload.channel_id)
+    channel = bot.get_channel(payload.channel_id)
     await channel.send('reaction')
 
 bot.run(token)
