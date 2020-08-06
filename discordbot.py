@@ -92,7 +92,7 @@ async def aram(ctx):
 
 
 @client.event
-async def on_reaction_add(payload):
+async def on_raw_reaction_add(payload):
     channel = client.get_channel(payload.channel_id)
     await channel.send('reaction')
 
