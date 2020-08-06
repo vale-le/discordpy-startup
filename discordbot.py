@@ -59,6 +59,11 @@ async def arai(ctx):
 
 
 @bot.command()
+async def sadao(ctx):
+    await ctx.channel.send('0202')
+
+
+@bot.command()
 async def aram(ctx):
     all_cmp = ['アーゴット', 'アーリ', 'アイバーン', 'アカリ', 'アジール', 'アッシュ',
                'アニー', 'アニビア', 'アフェリオス', 'アムム', 'アリスター', 'イブリン',
