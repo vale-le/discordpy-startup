@@ -96,6 +96,5 @@ async def on_reaction_add(payload):
     channel = client.get_channel(payload.channel_id)
     await channel.send('reaction')
 
-
-bot.run(token)
 client.run(token)
+bot.run(token)
