@@ -55,7 +55,9 @@ async def lint(ctx):
     
 @bot.command()
 async def arai(ctx):
-    await ctx.channel.send('yuya3838')
+    pass = ['yuuya3838', 'araiyuuya3838']
+    p = random.choice(pass)
+    await ctx.channel.send(p)
 
 
 @bot.command()
