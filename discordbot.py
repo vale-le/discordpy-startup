@@ -98,3 +98,4 @@ async def on_reaction_add(payload):
 
 
 bot.run(token)
+client.run(token)
