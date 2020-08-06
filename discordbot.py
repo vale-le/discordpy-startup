@@ -92,7 +92,6 @@ async def aram(ctx):
 
 @bot.event
 async def on_rreaction_add(payload):
-    channel = bot.get_channel(payload.channel_id)
-    await channel.send('reaction')
+    await ctx.channel.send('reaction')
 
 bot.run(token)
