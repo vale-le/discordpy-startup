@@ -76,12 +76,12 @@ async def mcd(ctx):
     morning = ['エッグマックマフィン', 'ベーコンエッグマックサンド', 'ソーセージエッグマフィン', 'ソーセージマフィン',
                'チキンクリスプマフィン', 'フィレオフィッシュ', 'ホットケーキ', 'マックグリドル ソーセージエッグ',
                'マックグリドル ベーコンエッグ', 'マックグリドル ソーセージ', 'メガマフィン', 'ビッグブレックファスト']
-    '''
+
     created_time = ctx.message.created_at.time()
     morning_time = datetime.time(20)
     lunch_time = datetime.time(1, 30)
     dinner_time = datetime.time(8)
-    ''''
+
     if create_time > morning_time or create_time <= lunch_time:
         burger = random.choice(morning)
     elif create_time > lunch_time and create_time <= dinner_time:
