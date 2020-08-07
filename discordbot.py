@@ -63,6 +63,7 @@ async def arai(ctx):
 
 @bot.command()
 async def mcd(ctx):
+    ''''
     reg = ['ハンバーガー', 'チーズバーガー', 'チキンクリスプ', 'ベーコンマックポーク', 'チキンチーズバーガー',
            'チキンチーズバーガー', 'エッグチーズバーガー', 'スパイシーチーズバーガー', 'えびフィレオ', 'ベーコンレタスバーガー',
            'てりやきチキンフィレオ', 'フィレオフィッシュ', 'てりやきマックバーガー', 'ダブルチーズバーガー', 'グラン ベーコンチーズ',
@@ -80,7 +81,7 @@ async def mcd(ctx):
     morning_time = datetime.time(20)
     lunch_time = datetime.time(1, 30)
     dinner_time = datetime.time(8)
-
+    ''''
     if create_time > morning_time or create_time <= lunch_time:
         burger = random.choice(morning)
     elif create_time > lunch_time and create_time <= dinner_time:
