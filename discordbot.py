@@ -75,7 +75,7 @@ async def mcd(ctx):
     morning = ['エッグマックマフィン', 'ベーコンエッグマックサンド', 'ソーセージエッグマフィン', 'ソーセージマフィン',
                'チキンクリスプマフィン', 'フィレオフィッシュ', 'ホットケーキ', 'マックグリドル ソーセージエッグ',
                'マックグリドル ベーコンエッグ', 'マックグリドル ソーセージ', 'メガマフィン', 'ビッグブレックファスト']
-
+    '''
     created_time = ctx.message.created_at.time()
     morning_time = datetime.time(20)
     lunch_time = datetime.time(1, 30)
@@ -87,8 +87,8 @@ async def mcd(ctx):
         burger = random.choice(reg + promo)
     elif create_time > dinner_time and create_time <= morning_time
         burger = random.choice(reg + night + promo)
-
-    await ctx.channel.send(burger)
+    ''''
+    await ctx.channel.send('a')
 
 
 @bot.command()
