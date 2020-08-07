@@ -63,32 +63,6 @@ async def arai(ctx):
 
 @bot.command()
 async def mcd(ctx):
-    ''''
-    reg = ['ハンバーガー', 'チーズバーガー', 'チキンクリスプ', 'ベーコンマックポーク', 'チキンチーズバーガー',
-           'チキンチーズバーガー', 'エッグチーズバーガー', 'スパイシーチーズバーガー', 'えびフィレオ', 'ベーコンレタスバーガー',
-           'てりやきチキンフィレオ', 'フィレオフィッシュ', 'てりやきマックバーガー', 'ダブルチーズバーガー', 'グラン ベーコンチーズ',
-           'グラン クラブハウス', 'ビッグマック']
-    night = ['倍ビッグマック', '倍グラン クラブハウス', '倍グラン ベーコンチーズ', '倍ダブルチーズバーガー', '倍てりやきマックバーガー',
-             '倍フィレオフィッシュ', '倍チキンフィレオ', '倍てりやきチキンフィレオ', '倍ベーコンレタスバーガー', '倍えびフィレオ',
-             '倍スパイシーチキンバーガー', '倍エッグチーズバーガー', '倍チキンチーズバーガー', '倍ベーコンマックポーク', '倍ハンバーガー',
-             '倍チキンクリスプ', '倍チーズバーガー']
-    promo = ['ハワイアンスパイシーバーベキュー', 'ガーリックシュリンプ', 'チーズロコモコ']
-    morning = ['エッグマックマフィン', 'ベーコンエッグマックサンド', 'ソーセージエッグマフィン', 'ソーセージマフィン',
-               'チキンクリスプマフィン', 'フィレオフィッシュ', 'ホットケーキ', 'マックグリドル ソーセージエッグ',
-               'マックグリドル ベーコンエッグ', 'マックグリドル ソーセージ', 'メガマフィン', 'ビッグブレックファスト']
-
-    created_time = ctx.message.created_at.time()
-    morning_time = datetime.time(20)
-    lunch_time = datetime.time(1, 30)
-    dinner_time = datetime.time(8)
-
-    if create_time > morning_time or create_time <= lunch_time:
-        burger = random.choice(morning)
-    elif create_time > lunch_time and create_time <= dinner_time:
-        burger = random.choice(reg + promo)
-    elif create_time > dinner_time and create_time <= morning_time
-        burger = random.choice(reg + night + promo)
-    ''''
     await ctx.channel.send('a')
 
 
