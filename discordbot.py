@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-from datetime import datetime
+import datetime
 import os
 import random
 import re
@@ -76,9 +76,19 @@ async def mcd(ctx):
                'チキンクリスプマフィン', 'フィレオフィッシュ', 'ホットケーキ', 'マックグリドル ソーセージエッグ',
                'マックグリドル ベーコンエッグ', 'マックグリドル ソーセージ', 'メガマフィン', 'ビッグブレックファスト']
 
-    created_at = ctx.message.created_at
-    burger = random.choice(reg)
-    await ctx.channel.send(created_at)
+    created_time = ctx.message.created_at.time()
+    morning_time = datetime.time(20)
+    lunch_time = datetime.time(1, 30)
+    dinner_time = datetime.time(8)
+
+    if create_time > morning_time or create_time <= lunch_time:
+        burger = random.choice(morning)
+    elif create_time > lunch_time and create_time <= dinner_time:
+        burger = random.choice(reg + promo)
+    elif create_time > dinner_time and create_time <= morning_time
+        burger = random.choice(reg + night + promo)
+
+    await ctx.channel.send(burger)
 
 
 @bot.command()
