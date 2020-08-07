@@ -102,6 +102,12 @@ async def atsushi(ctx):
 
 
 @bot.command()
+async def lane(ctx):
+    l = ['top', 'adc', 'jungle', 'mid', 'support', 'lint']
+    await ctx.channel.send(l)
+
+
+@bot.command()
 async def aram(ctx):
     all_cmp = ['アーゴット', 'アーリ', 'アイバーン', 'アカリ', 'アジール', 'アッシュ',
                'アニー', 'アニビア', 'アフェリオス', 'アムム', 'アリスター', 'イブリン',
