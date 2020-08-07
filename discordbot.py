@@ -103,7 +103,8 @@ async def atsushi(ctx):
 
 @bot.command()
 async def lane(ctx):
-    l = ['top', 'adc', 'jungle', 'mid', 'support', 'lint']
+    ls = ['top', 'adc', 'jungle', 'mid', 'support', 'lint']
+    l = random.choice(ls)
     await ctx.channel.send(l)
 
 
