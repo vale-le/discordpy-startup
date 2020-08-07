@@ -81,7 +81,14 @@ async def mcd(ctx):
     lunch_time = datetime.time(1, 30)
     dinner_time = datetime.time(8)
 
-    await ctx.channel.send(reg)
+    if created_time > morning_time or created_time <= lunch_time:
+        burger = random.choice(morning)
+    elif created_time > lunch_time and created_time <= dinner_time:
+        burger = random.choice(reg + promo)
+    elif created_time > dinner_time and created_time <= morning_time
+        burger = random.choice(reg + night + promo)
+
+    await ctx.channel.send(burger)
 
 
 @bot.command()
