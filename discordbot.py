@@ -76,6 +76,11 @@ async def mcd(ctx):
                'チキンクリスプマフィン', 'フィレオフィッシュ', 'ホットケーキ', 'マックグリドル ソーセージエッグ',
                'マックグリドル ベーコンエッグ', 'マックグリドル ソーセージ', 'メガマフィン', 'ビッグブレックファスト']
 
+    created_time = ctx.message.created_at.time()
+    morning_time = datetime.time(20)
+    lunch_time = datetime.time(1, 30)
+    dinner_time = datetime.time(8)
+
     await ctx.channel.send(reg)
 
 
