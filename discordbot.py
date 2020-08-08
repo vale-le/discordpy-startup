@@ -102,6 +102,11 @@ async def atsushi(ctx):
 
 
 @bot.command()
+async def kfc(ctx):
+    await ctx.channel.send('マック行け')
+
+
+@bot.command()
 async def lane(ctx):
     ls = ['top', 'adc', 'jungle', 'mid', 'support', 'lint']
     l = random.choice(ls)
