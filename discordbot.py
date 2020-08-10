@@ -107,6 +107,11 @@ async def kfc(ctx):
 
 
 @bot.command()
+async def mos(ctx):
+    await ctx.channel.send('スパイシーモスチーズバーガー')
+
+
+@bot.command()
 async def lane(ctx):
     ls = ['top', 'adc', 'jungle', 'mid', 'support', 'lint']
     l = random.choice(ls)
