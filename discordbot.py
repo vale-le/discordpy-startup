@@ -112,6 +112,11 @@ async def mos(ctx):
 
 
 @bot.command()
+async def bk(ctx):
+    await ctx.channel.send('/mcd')
+
+
+@bot.command()
 async def lane(ctx):
     ls = ['top', 'adc', 'jungle', 'mid', 'support', 'lint']
     l = random.choice(ls)
