@@ -113,7 +113,7 @@ async def mos(ctx):
 
 @bot.command()
 async def bk(ctx):
-    await ctx.channel.send('/mcd')
+    await ctx.channel.send('もしかして：/mcd')
 
 
 @bot.command()
