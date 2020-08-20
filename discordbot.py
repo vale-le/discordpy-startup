@@ -12,6 +12,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 def make_team(ctx, adj):
     include = []
     exclude = []
+    lane_list = ['top', 'jg', 'mid', 'bot', 'sup']
     for mem in adj:
         if re.match(r'\+.+', mem):
             include.append(mem[1:])
@@ -25,10 +26,18 @@ def make_team(ctx, adj):
     teamB = []
     nr_members = len(members)
     for i in range(nr_members):
-        if i % 2 == 0:
-            teamA.append(members[i])
+        lane_index = i // 2
+        if lane_index < len(lane_list):
+            if i % 2 == 0:
+                teamA.append('[] '.format(lane_list(lane_index)) + members[i])
+            else:
+                teamB.append('[] '.format(lane_list(lane_index)) + members[i])
         else:
-            teamB.append(members[i])
+             if i % 2 == 0:
+                teamA.append(members[i])
+            else:
+                teamB.append(members[i])
+
     msg = '.\n=== グリフィンドール ===\n' + '\n'.join(teamA) + '\n\n=== スリザリン ===\n' + '\n'.join(teamB)
     return msg
 
