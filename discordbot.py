@@ -30,10 +30,11 @@ def make_team(ctx, adj):
     for i in range(nr_members):
         lane_index = i // 2
         if lane_index < len(lane_list):
+            select_lane = lane_list(lane_index)
             if i % 2 == 0:
-                teamA.append('{}: '.format(lane_list(lane_index)) + members[i])
+                teamA.append('[{}]: '.format(select_lane) + members[i])
             else:
-                teamB.append('{}: '.format(lane_list(lane_index)) + members[i])
+                teamB.append('[{}]: '.format(select_lane) + members[i])
         else:
             if i % 2 == 0:
                 teamA.append(members[i])
