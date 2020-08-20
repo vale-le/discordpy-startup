@@ -9,13 +9,16 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-def make_team(ctx, adj):
+def make_team(ctx, args):
     include = []
     exclude = []
     lane_list = ['top', 'jng', 'mid', 'bot', 'sup']
-
-    for mem in adj:
-        if re.match(r'\+.+', mem):
+    show_lane = False
+    
+    for mem in args:
+        if re.match(r'\-\-lane', mem):
+            show_lane = True
+        elif re.match(r'\+.+', mem):
             include.append(mem[1:])
         elif re.match(r'\-.+', mem):
             exclude.append(mem[1:])
@@ -29,7 +32,7 @@ def make_team(ctx, adj):
 
     for i in range(nr_members):
         lane_index = i // 2
-        if lane_index < len(lane_list):
+        if lane_index < len(lane_list) and show_lane:
             select_lane = lane_list[lane_index]
             if i % 2 == 0:
                 teamA.append('[{}] '.format(select_lane) + members[i])
@@ -53,8 +56,8 @@ def make_team(ctx, adj):
 
 
 @bot.command()
-async def team(ctx, *adj):
-    msg = make_team(ctx, adj)
+async def team(ctx, *args):
+    msg = make_team(ctx, args)
     await ctx.channel.send(msg)
 
 
