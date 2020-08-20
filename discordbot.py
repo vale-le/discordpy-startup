@@ -12,7 +12,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 def make_team(ctx, adj):
     include = []
     exclude = []
-    lane_list = ['top', 'jg', 'mid', 'bot', 'sup']
+    lane_list = ['top', 'jng', 'mid', 'bot', 'sup']
 
     for mem in adj:
         if re.match(r'\+.+', mem):
