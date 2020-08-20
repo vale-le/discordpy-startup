@@ -13,6 +13,7 @@ def make_team(ctx, adj):
     include = []
     exclude = []
     lane_list = ['top', 'jg', 'mid', 'bot', 'sup']
+
     for mem in adj:
         if re.match(r'\+.+', mem):
             include.append(mem[1:])
@@ -25,6 +26,7 @@ def make_team(ctx, adj):
     teamA = []
     teamB = []
     nr_members = len(members)
+
     for i in range(nr_members):
         lane_index = i // 2
         if lane_index < len(lane_list):
@@ -33,7 +35,7 @@ def make_team(ctx, adj):
             else:
                 teamB.append('[] '.format(lane_list(lane_index)) + members[i])
         else:
-             if i % 2 == 0:
+            if i % 2 == 0:
                 teamA.append(members[i])
             else:
                 teamB.append(members[i])
